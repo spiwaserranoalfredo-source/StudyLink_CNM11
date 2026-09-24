@@ -14,7 +14,7 @@ nav button{border:0;background:#edf2f7;padding:10px 13px;border-radius:20px;whit
 nav button.active{background:#1264a3;color:white}main{max-width:700px;margin:auto;padding:14px}
 .page{display:none}.page.active{display:block}.card{background:white;border-radius:14px;padding:16px;margin:12px 0;box-shadow:0 2px 8px #0001}
 .hero{background:linear-gradient(135deg,#1264a3,#1985c7);color:white}
-h2{margin:4px 0 12px}h3{margin:5px 0 8px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+h2{margin:4px 0 12px}h3{tumargin:5px 0 8px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .tile{border:0;background:#fff;border-radius:12px;padding:16px;text-align:left;box-shadow:0 2px 7px #0001}
 .tile b{display:block;margin-bottom:5px}.muted{color:#65727e;font-size:13px}
 input{width:100%;padding:12px;border:1px solid #ccd5dd;border-radius:9px;margin:6px 0;font-size:15px}
@@ -69,6 +69,7 @@ const buttons=document.querySelectorAll("nav button");
 function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(id).classList.add("active");buttons.forEach(b=>b.classList.toggle("active",b.dataset.page===id));scrollTo(0,0)}
 buttons.forEach(b=>b.onclick=()=>showPage(b.dataset.page));
 function sendMessage(){const i=document.getElementById("msg"),t=i.value.trim();if(!t)return;const d=document.createElement("div");d.className="message";d.textContent="Orlando: "+t;document.getElementById("messages").appendChild(d);i.value=""}
+  function openSubject(subject){
 </script>
 </body>
 </html>
