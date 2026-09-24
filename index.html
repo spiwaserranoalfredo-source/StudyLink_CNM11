@@ -39,11 +39,28 @@ footer{text-align:center;color:#71808d;font-size:12px;padding:25px}
 <section id="inicio" class="page active">
 <div class="card hero"><h2>Bem-vindo ao StudyLink!</h2><p>Uma plataforma para facilitar a comunicação e o estudo da comunidade escolar.</p></div>
 <div class="grid">
-<button class="tile" onclick="showPage('grupos')"><b>👥 Grupos</b><span class="muted">CNM 11 e disciplinas</span></button>
-<button class="tile" onclick="showPage('materiais')"><b>📚 Materiais</b><span class="muted">Conteúdos para estudar</span></button>
-<button class="tile" onclick="showPage('chat')"><b>💬 Chat</b><span class="muted">Comunicar com a turma</span></button>
-<button class="tile" onclick="showPage('exames')"><b>📝 Exames</b><span class="muted">Preparação para provas</span></button>
+  <div class="tile" onclick="openSubject('Matemática')" style="cursor:pointer">
+    <b>➗ Matemática</b>
+    <span class="muted">Exercícios e dúvidas</span>
+  </div>
+
+  <div class="tile" onclick="openSubject('Química')" style="cursor:pointer">
+    <b>⚗️ Química</b>
+    <span class="muted">Resumos e exercícios</span>
+  </div>
+
+  <div class="tile" onclick="openSubject('Física')" style="cursor:pointer">
+    <b>⚡ Física</b>
+    <span class="muted">Problemas e revisão</span>
+  </div>
+
+  <div class="tile" onclick="openSubject('Biologia')" style="cursor:pointer">
+    <b>🧬 Biologia</b>
+    <span class="muted">Conteúdos e revisão</span>
+  </div>
 </div>
+
+<div id="subjectInfo" class="card" style="display:none"></div>
 <div class="card"><h3>📢 Aviso</h3><p>Bem-vindos ao grupo CNM 11. Usem o StudyLink para organizar os estudos.</p></div>
 </section>
 <section id="grupos" class="page"><div class="card"><h2>👥 Grupos de estudo</h2>
