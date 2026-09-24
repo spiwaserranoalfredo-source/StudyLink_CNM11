@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1264a3">
+<title>StudyLink — CNM 11</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f6f9;color:#17202a}
+header{background:#1264a3;color:white;padding:18px 16px;position:sticky;top:0;z-index:5}
+header h1{margin:0;font-size:24px}header p{margin:5px 0 0;font-size:13px}
+nav{display:flex;gap:6px;overflow:auto;background:white;padding:8px;position:sticky;top:78px;z-index:4;border-bottom:1px solid #ddd}
+nav button{border:0;background:#edf2f7;padding:10px 13px;border-radius:20px;white-space:nowrap}
+nav button.active{background:#1264a3;color:white}main{max-width:700px;margin:auto;padding:14px}
+.page{display:none}.page.active{display:block}.card{background:white;border-radius:14px;padding:16px;margin:12px 0;box-shadow:0 2px 8px #0001}
+.hero{background:linear-gradient(135deg,#1264a3,#1985c7);color:white}
+h2{margin:4px 0 12px}h3{margin:5px 0 8px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{border:0;background:#fff;border-radius:12px;padding:16px;text-align:left;box-shadow:0 2px 7px #0001}
+.tile b{display:block;margin-bottom:5px}.muted{color:#65727e;font-size:13px}
+input{width:100%;padding:12px;border:1px solid #ccd5dd;border-radius:9px;margin:6px 0;font-size:15px}
+button.primary{background:#1264a3;color:#fff;border:0;border-radius:9px;padding:12px 16px;font-weight:bold}
+.message{padding:10px;border-radius:10px;background:#eef5fa;margin:8px 0}
+.tag{display:inline-block;background:#e8f3fb;color:#1264a3;padding:5px 8px;border-radius:12px;font-size:12px;margin:2px}
+footer{text-align:center;color:#71808d;font-size:12px;padding:25px}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>📚 StudyLink</h1><p>Estudar • Comunicar • Conquistar | Turma CNM 11</p></header>
+<nav>
+<button data-page="inicio" class="active">🏠 Início</button>
+<button data-page="grupos">👥 Grupos</button>
+<button data-page="materiais">📚 Materiais</button>
+<button data-page="chat">💬 Chat</button>
+<button data-page="exames">📝 Exames</button>
+<button data-page="perfil">👤 Perfil</button>
+</nav>
+<main>
+<section id="inicio" class="page active">
+<div class="card hero"><h2>Bem-vindo ao StudyLink!</h2><p>Uma plataforma para facilitar a comunicação e o estudo da comunidade escolar.</p></div>
+<div class="grid">
+<button class="tile" onclick="showPage('grupos')"><b>👥 Grupos</b><span class="muted">CNM 11 e disciplinas</span></button>
+<button class="tile" onclick="showPage('materiais')"><b>📚 Materiais</b><span class="muted">Conteúdos para estudar</span></button>
+<button class="tile" onclick="showPage('chat')"><b>💬 Chat</b><span class="muted">Comunicar com a turma</span></button>
+<button class="tile" onclick="showPage('exames')"><b>📝 Exames</b><span class="muted">Preparação para provas</span></button>
+</div>
+<div class="card"><h3>📢 Aviso</h3><p>Bem-vindos ao grupo CNM 11. Usem o StudyLink para organizar os estudos.</p></div>
+</section>
+<section id="grupos" class="page"><div class="card"><h2>👥 Grupos de estudo</h2>
+<div class="card"><h3>🏫 CNM 11</h3><span class="tag">Turma</span><span class="tag">3 membros</span><p class="muted">Orlando Serrano • Nilsa Tone • Grácio Baptista</p><button class="primary" onclick="showPage('chat')">Abrir grupo</button></div>
+<div class="grid"><div class="tile"><b>➗ Matemática</b><span class="muted">Exercícios e dúvidas</span></div><div class="tile"><b>⚗️ Química</b><span class="muted">Resumos e exercícios</span></div><div class="tile"><b>⚡ Física</b><span class="muted">Problemas e revisão</span></div><div class="tile"><b>🧬 Biologia</b><span class="muted">Conteúdos e revisão</span></div></div></div></section>
+<section id="materiais" class="page"><div class="card"><h2>📚 Materiais de estudo</h2>
+<div class="message"><b>Química</b><br><span class="muted">Compostos macromoleculares — material da turma</span></div>
+<div class="message"><b>Matemática</b><br><span class="muted">Exercícios de preparação para exames</span></div>
+<div class="message"><b>Português</b><br><span class="muted">Textos normativos e gramática</span></div>
+<p class="muted">Na versão futura será possível enviar e baixar ficheiros.</p></div></section>
+<section id="chat" class="page"><div class="card"><h2>💬 Chat — CNM 11</h2>
+<div id="messages"><div class="message"><b>Orlando:</b> Olá, turma! 👋</div><div class="message"><b>Nilsa:</b> Vamos estudar para os exames! 📚</div><div class="message"><b>Grácio:</b> Enviem os exercícios quando puderem.</div></div>
+<input id="msg" placeholder="Escreva uma mensagem..."><button class="primary" onclick="sendMessage()">Enviar</button>
+<p class="muted">Demonstração local. O chat online real será ligado a uma base de dados numa próxima versão.</p></div></section>
+<section id="exames" class="page"><div class="card"><h2>📝 Preparação para exames</h2>
+<div class="message"><b>Química</b><br>Revisar conceitos, fórmulas e exercícios anteriores.</div><div class="message"><b>Matemática</b><br>Resolver exercícios diariamente e rever erros.</div><div class="message"><b>Física</b><br>Praticar fórmulas e problemas.</div><div class="message"><b>Português</b><br>Rever gramática, interpretação e produção textual.</div></div></section>
+<section id="perfil" class="page"><div class="card"><h2>👤 Perfil</h2><h3>Orlando Serrano</h3><p class="muted">Aluno • Turma CNM 11</p><span class="tag">Estudante</span><span class="tag">StudyLink</span></div>
+<div class="card"><h3>👥 Equipa do projeto</h3><p>Orlando Serrano</p><p>Nilsa Tone</p><p>Grácio Baptista</p></div></section>
+</main>
+<footer>StudyLink © 2026 • Projeto escolar CNM 11</footer>
+<script>
+const buttons=document.querySelectorAll("nav button");
+function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(id).classList.add("active");buttons.forEach(b=>b.classList.toggle("active",b.dataset.page===id));scrollTo(0,0)}
+buttons.forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+function sendMessage(){const i=document.getElementById("msg"),t=i.value.trim();if(!t)return;const d=document.createElement("div");d.className="message";d.textContent="Orlando: "+t;document.getElementById("messages").appendChild(d);i.value=""}
+</script>
+</body>
+</html>
