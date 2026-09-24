@@ -86,7 +86,26 @@ const buttons=document.querySelectorAll("nav button");
 function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(id).classList.add("active");buttons.forEach(b=>b.classList.toggle("active",b.dataset.page===id));scrollTo(0,0)}
 buttons.forEach(b=>b.onclick=()=>showPage(b.dataset.page));
 function sendMessage(){const i=document.getElementById("msg"),t=i.value.trim();if(!t)return;const d=document.createElement("div");d.className="message";d.textContent="Orlando: "+t;document.getElementById("messages").appendChild(d);i.value=""}
-  function openSubject(subject){
+  function openSubject(subject){function openSubject(subject){
+  const info = document.getElementById("subjectInfo");
+
+  if(!info) return;
+
+  info.style.display = "block";
+
+  info.innerHTML = `
+    <h3>📚 Grupo de ${subject}</h3>
+    <p class="muted">Área da turma para ${subject}.</p>
+    <div class="message">📚 Materiais de ${subject}</div>
+    <div class="message">📝 Exercícios de ${subject}</div>
+    <div class="message">📢 Avisos de ${subject}</div>
+    <button class="primary" onclick="showPage('chat')">
+      💬 Ir para o chat
+    </button>
+  `;
+
+  info.scrollIntoView({behavior:"smooth"});
+}
 </script>
 </body>
 </html>
